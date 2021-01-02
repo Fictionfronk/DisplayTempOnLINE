@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LIFF demo</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+    <link rel="stylesheet" type="text/css" href="path/to/onsen-css-components.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+    <style>
+        #button {
+            color: #00B900;
+            font-size: 30px;
+        }
+
+        head,
+        body {
+            background-color: #FFFFFF;
+        }
+
+        .pic {
+
+            border-radius: 100%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 50px 100px;
+            padding: 10px;
+            grid-gap: 10px;
+            background-color: #FFFFFF;
+        }
+
+        .grid-item {
+
+            font-size: 14px;
+            background-color: #FFFFFF;
+
+        }
+
+        .page__background {
+            background-color: #FFFFFF;
+
+        }
+
+        ons-list-header {
+            background-color: #FFFFFF;
+        }
+
+        .font {
+            font-family: 'Xanh Mono', monospace;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.0.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.0.1/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <ons-toolbar-button>
+        <ons-icon icon="ion-navicon, material:md-account_circle"></ons-icon>
+    </ons-toolbar-button>
+    <ons-page>
+
+        <ons-tabbar swipeable position="ons-toolbar-button">
+            <ons-tab page="tab1.html" icon="md-home" active-icon="md-home" style="background-color:#292F33">
+            </ons-tab>
+            <ons-tab page="tab2.html" icon="md-accounts-alt" active-icon="md-accounts-alt"
+                style="background-color:#292F33">
+            </ons-tab>
+
+        </ons-tabbar>
+        <style class=""></style>
+
+    </ons-page>
+
+
+
+    <template id="tab1.html">
+        <ons-page id="Tab1">
+            <ons-navigator swipeable id="myNavigator" page="page1.html"></ons-navigator>
+
+            <template id="page1.html">
+                <ons-page id="page1">
+                    <ons-toolbar style="background-color:#292F33">
+                        <div class="right">
+                            <ons-toolbar-button id="button" icon="md-videocam">
+                            </ons-toolbar-button>
+                        </div>
+                    </ons-toolbar>
+
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <img class="pic" id="pictureUrl" width="100%">
+
+                        </div>
+                        <div class="grid-item">
+                            <p class="center" id="displayName"></p>
+                            <p class="center" id="displayName">room: 508</p>
+                        </div>
+
+                    </div>
+
+                    <script>function runApp() {
+                            liff.getProfile().then(profile => {
+                                document.getElementById("pictureUrl").src = profile.pictureUrl;
+                                document.getElementById("displayName").innerHTML = '<p>   </p> ' + profile.displayName;
+
+                            }
+                            ).catch(err => console.error(err));
+
+                        }
+
+                        liff.init({
+                            liffId: "1655228756-kwDOqBVp"
+                        }
+
+                            , () => {
+                                if (liff.isLoggedIn()) {
+                                    runApp()
+                                }
+
+                                else {
+                                    liff.login();
+                                }
+                            }
+
+                            , err => console.error(err.code, error.message));
+                    </script>
+                    <ons-list-header style="background-color: #FFFFFF;">lock and Time</ons-list-header>
+                    <ons-list-item>
+                        <div class="left">
+                            <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40">
+                        </div>
+                        <div class="center">
+                            <span class="list-item__title">UserName</span>
+                            <span class="activity-item__subtitle">Activity</span>
+
+                        </div>
+                        <div class="right">
+                            <span class="time-item__subtitle">Time</span>
+                        </div>
+                    </ons-list-item>
+                    <ons-list-item>
+                        <div class="left">
+                            <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40">
+                        </div>
+                        <div class="center">
+                            <span class="list-item__title">UserName</span>
+                            <span class="activity-item__subtitle">Activity</span>
+
+                        </div>
+                        <div class="right">
+                            <span class="time-item__subtitle">Time</span>
+                        </div>
+                    </ons-list-item>
+
+
+                </ons-page>
+            </template>
+
+            <template id="page2.html">
+                <ons-page id="page2">
+                    <ons-toolbar>
+                        <div class="left">
+                            <ons-back-button>Page 1</ons-back-button>
+                        </div>
+                        <div class="center"></div>
+                    </ons-toolbar>
+
+                    <p>This is the second page.</p>
+                </ons-page>
+            </template>
+            <!-- <script>
+                document.addEventListener('init', function (event) {
+                    var page = event.target;
+
+                    if (page.id === 'page1') {
+                        page.querySelector('#push-button').onclick = function () {
+                            // document.querySelector('#myNavigator').pushPage('page2.html', { data: { title: 'Page 2' } });
+                            
+                        };
+                    } else if (page.id === 'page2') {
+                        page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+                    }
+                });
+            </script> -->
+
+        </ons-page>
+    </template>
+    <template id="tab2.html" style="background-color: #FFFFFF;">
+        <ons-page id="Tab2">
+            <ons-toolbar style="background-color:#292F33">
+                <div class="right">
+                    <ons-toolbar-button id='button' icon="md-account-add">
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            </ons-list>
+            <!-- <div class="center" style="position: centers;">
+                <span><ons-icon size="100px" icon="md-accounts"></ons-icon></span>
+                
+            </div> -->
+            <ons-list-header style="background-color: #ffffff;">Others</ons-list-header>
+            <ons-list-item>
+                <div class="left">
+                    <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40">
+                </div>
+                <div class="center">
+                    <span class="list-item__title">UserName</span><span class="list-item__subtitle">Role</span>
+                </div>
+                <div class="right">
+
+                </div>
+            </ons-list-item>
+            <ons-list-item>
+                <div class="left">
+                    <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40">
+                </div>
+                <div class="center">
+                    <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">On the
+                        Internet</span>
+                </div>
+            </ons-list-item>
+            <!-- <ons-list id="listKeys">
+                <ons-list-header>Others</ons-list-header>
+                <ons-list-item>Palm</ons-list-item>
+                <ons-list-item>Bob</ons-list-item>
+                <ons-list-item>Eve</ons-list-item>
+            </ons-list> -->
+
+            <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+            <script>
+                db = firebase.firebase();
+                list = document.querySelector('#listKeys');
+
+                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAt-f2JHVSBZyrKCXHhfqk_a05TgWOy-8w",
+                    authDomain: "linekey-access.firebaseapp.com",
+                    databaseURL: "https://linekey-access.firebaseio.com",
+                    projectId: "linekey-access",
+                    storageBucket: "linekey-access.appspot.com",
+                    messagingSenderId: "48934512292",
+                    appId: "1:48934512292:web:91012e7d3c4455ce962831",
+                    measurementId: "G-5V1C6HJE5P"
+                };
+                firebase.initializeApp(firebaseConfig);
+                var firestore = firebase.firestore();
+                var db = firebase.firestore();
+
+
+                db.collection("Private")
+                    .onSnapshot(function (querySnapshot) {
+                        $("#listgroup").html('');
+                        querySnapshot.forEach(function (doc) {
+                            $("#listgroup").append('<li class="list-group-item">' + doc.data().txt + '</li>')
+                        });
+
+                    });
+
+
+                function saveData() {
+                    db.collection("Private").add({
+                        txt: $("#txtPost").val()
+                    })
+                        .then(function (docRef) {
+                            console.log("Document written with ID: ", docRef.id);
+                        })
+                        .catch(function (error) {
+                            console.error("Error adding document: ", error);
+                        });
+                }
+
+            </script>
+
+
+
+
+
+        </ons-page>
+    </template>
+
+</body>
+
+</html>

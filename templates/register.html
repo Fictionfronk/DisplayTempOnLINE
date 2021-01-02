@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <style>
+        #button {
+
+            font-size: 40px;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <ons-navigator swipeable id="appNavigator" page="mainPage.html"></ons-navigator>
+
+    <template id="mainPage.html">
+        <ons-page id="mainPage">
+            <ons-toolbar style="background-color: #292F33">
+                <div class="center" style="color:white;">Registration</div>
+                <div class="right">
+                    <ons-toolbar-button id='button' icon="md-account-add">
+                    </ons-toolbar-button>
+
+                </div>
+            </ons-toolbar>
+
+
+            <ons-list-item style="background-color: white;">
+                <div class="left">
+                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="name-input" float maxlength="20" placeholder="First name
+                    "></ons-input>
+                </label>
+
+
+            </ons-list-item>
+            <ons-list-item style="background-color: white;">
+                <div class="left">
+                    <ons-icon style="color:white;" icon="md-face" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="name-input" float maxlength="20" placeholder="Last name"></ons-input>
+                </label>
+
+
+            </ons-list-item>
+            <ons-list-item style="background-color: white;">
+
+                <div class="left">
+                    <ons-icon icon="md-phone" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="name-input" float maxlength="20" placeholder="Phone number"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item style="background-color: white;">
+                <ons-icon clas='left' icon="md-gps-dot"></ons-icon>
+                <label class="left">GPS</label>
+                <label class="right" id="gps-status">NULL</label>
+                <label class="">
+            </ons-list-item>
+
+            </ons-list>
+            <ons-button modifier="large" icon='md-pin' id="start-button" onclick="fn.startAcq()"></ons-button>
+        </ons-page>
+    </template>
+
+    <script>
+        let updateFlag = false;
+        let onlineFlag = false;
+        let prevTick = 0;
+        let gpsWatchId = 0;
+        let posLatitude = [];
+        let posLongitude = [];
+
+        const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+        const arrStdev = arr => {
+            const avg = arrAvg(arr);
+            let total = 0;
+            for (let i = 0; i < arr.length; i++) {
+                total += Math.pow((arr[i] - avg), 2);
+            }
+            return Math.sqrt(total / arr.length);
+        };
+        const arrMin = arr => { return Math.min(...arr) };
+        const arrMax = arr => { return Math.max(...arr) };
+
+        function submitFirebase(t) {
+            const projName = document.getElementById('project-name').value;
+            const pathName = document.getElementById('path-name').value;
+            let Url = 'https://' + projName + '.firebaseio.com/' + pathName + '.json';
+            let Data = {
+                timestamp: t,
+                latitude: posLatitude,
+                longitude: posLongitude,
+
+            };
+            const Params = {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Data),
+                method: 'POST'
+            };
+            console.log(JSON.stringify(Data))
+
+        }
+
+
+        window.fn = {};
+
+        window.fn.startAcq = function () {
+            if (!updateFlag) {
+                console.log('Start updating');
+                // GPS tracking
+                gpsWatchId = navigator.geolocation.watchPosition(pos => {
+                    posLatitude.push(pos.coords.latitude);
+                    posLongitude.push(pos.coords.longitude);
+                    document.getElementById('gps-status').innerHTML = pos.coords.latitude.toString() + ',' + pos.coords.longitude.toString();
+
+                    // Sending data
+                    if (Date.now() > prevTick + 10000) {
+                        const t = new Date(pos.timestamp);
+                        submitFirebase(t);
+                        posLatitude = [];
+                        posLongitude = [];
+                        prevTick = Date.now();
+                    }
+                }, err => {
+                    console.log(err);
+                },
+                    options = {
+                        enableHighAccuracy: true,
+                        timeout: 10000
+                    });
+
+                document.getElementById('start-button').innerText = 'STOP';
+
+                updateFlag = true;
+            } else {
+                console.log('Stop updating');
+                navigator.geolocation.clearWatch(gpsWatchId);
+                gpsWatchId = 0;
+                document.getElementById('start-button').innerText = 'START';
+                updateFlag = false;
+            }
+        };
+
+        window.fn.toggleOnline = function () {
+            if (!onlineFlag) {
+                console.log('Start syncing');
+                onlineFlag = true;
+                document.getElementById('online-flag').innerHTML = 'OFFLINE';
+            } else {
+                console.log('Stop syncing');
+                onlineFlag = false;
+                document.getElementById('online-flag').innerHTML = 'ONLINE';
+            }
+        };
+    </script>
+</body>
+
+</html>

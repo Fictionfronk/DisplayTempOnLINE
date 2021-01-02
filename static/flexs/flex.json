@@ -1,0 +1,465 @@
+    {
+        "share_access": {
+            "type": "bubble",
+            "header": {
+                "type": "box",
+                "layout": "horizontal",
+                "spacing": "none",
+                "backgroundColor": "#1B1B1B",
+                "contents": [
+                    {
+                        "type": "image",
+                        "url": "https://www.pananat.net/wp-content/uploads/2019/03/LINE-icon-pop-text-green-1024x1024-%E2%80%93-1.png",
+                        "flex": 1,
+                        "align": "end",
+                        "size": "35%",
+                        "offsetTop": "10%",
+                        "offsetEnd": "3%",
+                        "position": "relative"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 2,
+                        "spacing": "none",
+                        "margin": "none",
+                        "offsetTop": "2%",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "KEY ACCESS",
+                                "weight": "bold",
+                                "size": "sm",
+                                "color": "#FFFFFF",
+                                "align": "start",
+                                "contents": []
+                            },
+                            {
+                                "type": "text",
+                                "text": "connect. make your life easier.",
+                                "size": "xxs",
+                                "color": "#EFEFEF",
+                                "align": "start",
+                                "offsetBottom": "9%",
+                                "contents": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 5,
+                "spacing": "none",
+                "position": "relative",
+                "paddingAll": "0px",
+                "paddingBottom": "0px",
+                "height": "100%",
+                "backgroundColor": "#1B1B1B",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "how long will this \n guest be staying?",
+                        "weight": "bold",
+                        "size": "xl",
+                        "color": "#009B00FF",
+                        "align": "center",
+                        "margin": "none",
+                        "wrap": true,
+                        "contents": []
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "spacing": "none",
+                        "margin": "none",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "https://i.ibb.co/rb2DQtT/line1.png",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "position": "absolute",
+                                "offsetStart": "60%",
+                                "offsetTop": "20%",
+                                "contents": [
+                                    {
+                                        "type": "button",
+                                        "action": {
+                                          "type": "datetimepicker",
+                                          "label": "start",
+                                          "data": "start",
+                                          "mode": "datetime",
+                                          "initial": "2020-11-14T04:42",
+                                          "max": "2021-11-14T04:42",
+                                          "min": "2019-11-14T04:42"
+                                        },
+                                        "height": "sm",
+                                        "style": "primary"
+                                      },
+                                      {
+                                        "type": "separator",
+                                        "margin": "lg",
+                                        "color": "#1B1B1B"
+                                      },
+                                      {
+                                        "type": "button",
+                                        "action": {
+                                          "type": "datetimepicker",
+                                          "label": "end",
+                                          "data": "end",
+                                          "mode": "datetime",
+                                          "initial": "2020-11-14T04:42",
+                                          "max": "2021-11-14T04:42",
+                                          "min": "2019-11-14T04:42"
+                                        },
+                                        "height": "sm",
+                                        "style": "primary"
+                                      }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "separator": false,
+                    "separatorColor": "#1B1B1B"
+                },
+                "body": {
+                    "backgroundColor": "#1B1B1B",
+                    "separator": false
+                }
+            }
+        },
+        "guest_type": {
+            "type": "bubble",
+            "size": "mega",
+            "spacing": "none",
+            "header": {
+                "type": "box",
+                "layout": "horizontal",
+                "paddingBottom":"2%",
+                "backgroundColor": "#1B1B1B",
+                "contents": [
+                    {
+                        "type": "image",
+                        "url": "https://www.pananat.net/wp-content/uploads/2019/03/LINE-icon-pop-text-green-1024x1024-%E2%80%93-1.png",
+                        "flex": 1,
+                        "align": "end",
+                        "size": "35%",
+                        "offsetTop": "10%",
+                        "offsetEnd": "3%",
+                        "position": "relative"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 2,
+                        "spacing": "none",
+                        "margin": "none",
+                        "offsetTop": "2%",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "KEY ACCESS",
+                                "weight": "bold",
+                                "size": "sm",
+                                "color": "#FFFFFF",
+                                "align": "start",
+                                "contents": []
+                            },
+                            {
+                                "type": "text",
+                                "text": "connect. make your life easier.",
+                                "size": "xxs",
+                                "color": "#EFEFEF",
+                                "align": "start",
+                                "offsetBottom": "9%",
+                                "contents": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "none",
+                "margin": "none",
+                "offsetBottom": "10%",
+                "paddingBottom":"1%",
+                "backgroundColor": "#1B1B1B",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "none",
+                        "margin": "none",
+                        "backgroundColor": "#1B1B1B",
+                        "contents": [
+
+                            {
+                                "type": "text",
+                                "text": "WHICH TYPE IS THIS GUEST?",
+                                "weight": "bold",
+                                "size": "xl",
+                                "color": "#009B00FF",
+                                "align": "center",
+                                "margin": "none",
+                                "wrap": true,
+                                "contents": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "none",
+                "margin": "none",
+                "paddingTop":"1%",
+                "backgroundColor": "#1B1B1B",
+                "borderColor": "#1B1B1B",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "message",
+                                    "label": "Temporary",
+                                    "text": "temporary"
+                                },
+                                "flex": 8,
+                                "style": "primary"
+                            },
+                            {
+                                "type": "filler",
+                                "flex": 1
+                            },
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "message",
+                                    "label": "One Time",
+                                    "text": "one time"
+                                },
+                                "flex": 8,
+                                "color": "#0A65FFFF",
+                                "style": "primary"
+                            }
+                    ]},
+                    {
+                      "type": "box",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                            "type": "separator",
+                            "margin": "md",
+                            "color": "#1B1B1B"
+                          },
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "message",
+                            "label": "Permanent",
+                            "text": "permanent"
+                          },
+                          "color": "#BE4A4AFF",
+                          "style": "primary"
+                        }
+                      ]
+                    }
+                  
+                
+                ]
+            },
+            "styles": {
+                "header": {
+                    "separator": false,
+                    "separatorColor": "#1B1B1B"
+                },
+                "body": {
+                    "backgroundColor": "#1B1B1B",
+                    "separator": false
+                },
+                "footer": {
+                    "backgroundColor": "#1B1B1B",
+                    "separator": false
+                }
+            }
+        },
+        "remote_access": {
+            "type": "bubble",
+            "size": "mega",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "paddingBottom":"2%",
+                "spacing": "none",
+                "paddingAll": "0px",
+                "contents": [
+                    {
+                        "type": "image",
+                        "url": "https://i.ibb.co/hHHsHxt/line2.png",
+                        "size": "full",
+                        "aspectRatio": "11:5",
+                        "aspectMode": "cover",
+                        "offsetTop": "17%"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "none",
+                        "margin": "none",
+                        "position": "absolute",
+                        "offsetBottom": "60px",
+                        "offsetStart": "5%",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "DO YOU WANT TO \nOPEN THE DOOR",
+                                "size": "xl",
+                                "weight": "bold",
+                                "color": "#009B00FF",
+                                "align": "start",
+                                "wrap": true,
+                                "contents": []
+                            },
+                            {
+                                "type": "text",
+                                "text": "remotely ?",
+                                "weight": "bold",
+                                "size": "xxl",
+                                "color": "#009B00FF",
+                                "align": "start",
+                                "margin": "none",
+                                "wrap": false,
+                                "contents": [
+                                    {
+                                        "type": "span",
+                                        "text": "REMOTELY ",
+                                        "color": "#0A65FF"
+                                    },
+                                    {
+                                        "type": "span",
+                                        "text": "?"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "position": "relative",
+                        "offsetEnd": "5%",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "flex": 4,
+                                "contents": [
+                                    {
+                                        "type": "image",
+                                        "url": "https://www.pananat.net/wp-content/uploads/2019/03/LINE-icon-pop-text-green-1024x1024-%E2%80%93-1.png",
+                                        "margin": "none",
+                                        "size": "20%",
+                                        "offsetStart": "35%",
+                                        "aspectMode": "fit",
+                                        "position": "relative"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "flex": 5,
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "KEY ACCESS",
+                                        "weight": "bold",
+                                        "size": "sm",
+                                        "color": "#FFFFFF",
+                                        "align": "start",
+                                        "wrap": false,
+                                        "style": "normal",
+                                        "position": "relative",
+                                        "contents": []
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "connect. make your life easier.",
+                                        "size": "xxs",
+                                        "color": "#EFEFEF",
+                                        "offsetBottom": "9%",
+                                        "contents": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "spacing": "none",
+                "margin": "none",
+                "position": "relative",
+                "paddingStart": "3%",
+                "paddingEnd": "3%",
+                "backgroundColor": "#050a24",
+                "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "postback",
+                            "label": "YES",
+                            "text": "#open",
+                            "data": "# flex3 yes"
+                        },
+                        "style": "primary"
+                    },
+                    {
+                        "type": "separator",
+                        "margin": "md",
+                        "color": "#050a24"
+                    },
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "postback",
+                            "label": "NO",
+                            "text": "no",
+                            "data": "# flex3 no"
+                        },
+                        "color": "#DE4242FF",
+                        "style": "primary"
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "separator": false,
+                    "separatorColor": "#050a24"
+                },
+                "footer": {
+                    "separator": false,
+                    "separatorColor": "#050a24"
+                }
+            }
+        }
+    }
