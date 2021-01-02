@@ -18,7 +18,6 @@ import os
 import hashlib
 import threading
 import time
-import models
 import paho.mqtt.client as mqtt
 
 # from pydub import AudioSegment

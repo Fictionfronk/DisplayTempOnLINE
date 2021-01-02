@@ -9,8 +9,8 @@
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h>
 
-const char* ssid = "Dunnowattodo";
-const char* pass = "qwer1234";
+const char* ssid = "AISFibre_C10_609_2.4G";
+const char* pass = "TU@C10609";
 const char* mqtt_server = "broker.netpie.io";
 const int mqtt_port = 1883;
 const char* mqtt_Client = "6f755bda-610f-4ab3-98c9-b161abccd2ad";
