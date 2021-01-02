@@ -1,8 +1,4 @@
-# Line-Key-Access
-**Smart door lock.**
-**Connect. make your life easier.**
-## introduction
-owner can order bot to open door and also can authorize friend to open door at anytime
+# DisplayTempOnLINE
 ## requirements
 recommended python >= 3.4.x
 ## installation
@@ -15,6 +11,3 @@ recommended python >= 3.4.x
   * Linux
     * $ change directory into line bot sdk
     * $ sudo python setup.py install
-* $ pip install google  
-* $ pip install google-cloud    
-* $ pip install google-cloud-vision
